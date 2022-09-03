@@ -20,7 +20,7 @@
 <meta property="og:type" content="article">
 <meta property="og:title" content="测试文章">
 <meta property="og:url" content="http://example.com/2021/06/10/%E6%B5%8B%E8%AF%95%E6%96%87%E7%AB%A0/index.html">
-<meta property="og:site_name" content="Sunshine">
+<meta property="og:site_name" content="Sunshine Blog">
 <meta property="og:description" content="这是一篇测试文章">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://example.com/2021/06/10/%E6%B5%8B%E8%AF%95%E6%96%87%E7%AB%A0/1.png">
@@ -35,7 +35,7 @@
   
   
   
-  <title>测试文章 - Sunshine</title>
+  <title>测试文章 - Sunshine Blog</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -395,9 +395,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2022/09/03/hello-world/" title="Hello World">
+                      <a href="/2022/09/03/hello-world/" title="about">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">Hello World</span>
+                        <span class="hidden-mobile">about</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -413,6 +413,28 @@
             
   <article id="comments" lazyload>
     
+  <div id="valine"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#valine', function() {
+      Fluid.utils.createScript('https://lib.baomitu.com/valine/1.4.17/Valine.min.js', function() {
+        var options = Object.assign(
+          {"appId":"YuTetxrP30XXZ3GhLA8l4EL9-gzGzoHsz","appKey":"nYRJXHIZYuUejqCxCiWD4pJI","path":"window.location.pathname","placeholder":null,"avatar":"retro","meta":["nick","mail","link"],"requiredFields":[],"pageSize":10,"lang":"zh-CN","highlight":false,"recordIP":false,"serverURLs":"","emojiCDN":null,"emojiMaps":null,"enableQQ":false},
+          {
+            el: "#valine",
+            path: window.location.pathname
+          }
+        )
+        new Valine(options);
+        Fluid.utils.waitElementVisible('#valine .vcontent', () => {
+          var imgSelector = '#valine .vcontent img:not(.vemoji)';
+          Fluid.plugins.imageCaption(imgSelector);
+          Fluid.plugins.fancyBox(imgSelector);
+        })
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
 
   </article>
 
@@ -509,6 +531,31 @@
        <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
     </div>
   
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="leancloud-site-pv-container" style="display: none">
+        总访问量 
+        <span id="leancloud-site-pv"></span>
+         次
+      </span>
+    
+    
+      <span id="leancloud-site-uv-container" style="display: none">
+        总访客数 
+        <span id="leancloud-site-uv"></span>
+         人
+      </span>
+    
+    
+
+  
+</div>
+
   
   
   
