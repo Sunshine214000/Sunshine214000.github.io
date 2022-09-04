@@ -16,22 +16,24 @@
   <meta name="author" content="Lee Shan">
   <meta name="keywords" content="">
   
-    <meta name="description" content="恭喜你！ 成功捕获一只小菜鸡 :） 这是一篇测试文章">
+    <meta name="description" content="AC+AP 配置  @author：Sunshine @time: 2022&#x2F;6&#x2F;15 @software:Typora,ensp  配置要求 （1）使用 ENSP 软件，根据拓扑图搭建网络环境（建议 AC 使用 6605 型号，AP 使用 6060 型号，交换机使用 3700 型号，不影响评分）或者导入 topo 文件。  （2）AP 管理 vlan100 使用地址段 1">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello world ！">
-<meta property="og:url" content="https://sunshine214000.github.io/2022/09/03/hello-world/index.html">
+<meta property="og:title" content="二层ac+ap组网基础配置">
+<meta property="og:url" content="https://sunshine214000.github.io/2022/09/04/ac&ap/index.html">
 <meta property="og:site_name" content="Sunshine Blog">
-<meta property="og:description" content="恭喜你！ 成功捕获一只小菜鸡 :） 这是一篇测试文章">
+<meta property="og:description" content="AC+AP 配置  @author：Sunshine @time: 2022&#x2F;6&#x2F;15 @software:Typora,ensp  配置要求 （1）使用 ENSP 软件，根据拓扑图搭建网络环境（建议 AC 使用 6605 型号，AP 使用 6060 型号，交换机使用 3700 型号，不影响评分）或者导入 topo 文件。  （2）AP 管理 vlan100 使用地址段 1">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2022-09-03T09:28:33.000Z">
-<meta property="article:modified_time" content="2022-09-04T09:51:53.290Z">
+<meta property="og:image" content="https://s1.328888.xyz/2022/06/15/pmEFq.png">
+<meta property="article:published_time" content="2022-09-04T10:05:30.000Z">
+<meta property="article:modified_time" content="2022-09-04T10:17:38.371Z">
 <meta property="article:author" content="Lee Shan">
 <meta property="article:tag" content="原创">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://s1.328888.xyz/2022/06/15/pmEFq.png">
   
   
   
-  <title>Hello world ！ - Sunshine Blog</title>
+  <title>二层ac+ap组网基础配置 - Sunshine Blog</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -213,7 +215,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="Hello world ！"></span>
+            <span id="subtitle" data-typed-text="二层ac+ap组网基础配置"></span>
           
         </div>
 
@@ -224,8 +226,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2022-09-03 17:28" pubdate>
-          2022年9月3日 下午
+        <time datetime="2022-09-04 18:05" pubdate>
+          2022年9月4日 晚上
         </time>
       </span>
     
@@ -236,7 +238,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          23 字
+          6.3k 字
         
       </span>
     
@@ -247,7 +249,7 @@
         
         
         
-          1 分钟
+          53 分钟
         
       </span>
     
@@ -293,13 +295,163 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">Hello world ！</h1>
+            <h1 style="display: none">二层ac+ap组网基础配置</h1>
             
             
               <div class="markdown-body">
                 
-                <p>恭喜你！ 成功捕获一只小菜鸡 :）</p>
-<p>这是一篇测试文章</p>
+                <blockquote>
+<blockquote>
+<h1 id="AC-AP-配置"><a href="#AC-AP-配置" class="headerlink" title="AC+AP 配置"></a>AC+AP 配置</h1></blockquote>
+<hr>
+<p><strong>@author：Sunshine</strong></p>
+<p><strong>@time: 2022&#x2F;6&#x2F;15</strong></p>
+<p><strong>@software:Typora,ensp</strong></p>
+</blockquote>
+<h2 id="配置要求"><a href="#配置要求" class="headerlink" title="配置要求"></a>配置要求</h2><ul>
+<li><p>（1）使用 ENSP 软件，根据拓扑图搭建网络环境（建议 AC 使用 6605 型号，AP 使用 6060 型号，交换机使用 3700 型号，不影响评分）或者导入 topo 文件。</p>
+</li>
+<li><p>（2）AP 管理 vlan100 使用地址段 100.100.100.0&#x2F;24 段，用户 AP1 使用 vlan10 地址段为 192.168.10.0&#x2F;24，用户 AP2 使用 vlan20 地址段为 192.168.20.0&#x2F;24。</p>
+</li>
+<li><p>（3）AP1 广播 SSID 名称为 scitc，AP2 广播 SSID 名称为 jiwang，都使用直接转发（本地转发）模式，密码无要求。（域管理模板、ssid 模板、安全管理模板、组名都属于自定义项）</p>
+</li>
+<li><p>（4）STA1 搜索无线网络，并连接上无线网络。</p>
+</li>
+</ul>
+<h2 id="拓扑图"><a href="#拓扑图" class="headerlink" title="拓扑图"></a>拓扑图</h2><p><img src="https://s1.328888.xyz/2022/06/15/pmEFq.png" srcset="/img/loading.gif" lazyload></p>
+<h2 id="配置详细过程"><a href="#配置详细过程" class="headerlink" title="配置详细过程"></a>配置详细过程</h2><h3 id="AC1-配置"><a href="#AC1-配置" class="headerlink" title="AC1 配置"></a>AC1 配置</h3><ol>
+<li><p>VLAN&amp;&amp;链路配置</p>
+<div class="code-wrapper"><pre><code class="hljs ensp">&lt;AC6605&gt;sys
+Enter system view, return user view with Ctrl+Z.
+[AC6605]un in en
+Info: Information center is disabled.
+[AC6605]vlan batch 100 10 20		# 创建vlan100 20 10
+Info: This operation may take a few seconds. Please wait for a moment...done.
+[AC6605]dhcp enable		# 开启DHCP服务
+Info: The operation may take a few seconds. Please wait for a moment.done.
+[AC6605]int g 0/0/2
+[AC6605-GigabitEthernet0/0/2]port link-type trunk		# 更改接口类型为trunk
+[AC6605-GigabitEthernet0/0/2]port trunk allow-pass vlan 100 10 20 		# 设置允许通过的vlan
+[AC6605-GigabitEthernet0/0/2]int vlan 100
+[AC6605-Vlanif100]description AP_Manage
+[AC6605-Vlanif100]ip add 192.168.100.1 24
+[AC6605-Vlanif100]dhcp select interface			# DHCP选择源接口
+[AC6605-Vlanif100]quit
+[AC6605]int vlan 10
+[AC6605-Vlanif10]description uSER_AP1
+[AC6605-Vlanif10]ip add 192.168.10.1 24
+[AC6605-Vlanif10]dhcp select interface
+[AC6605-Vlanif10]quit
+[AC6605]int vlan 100
+[AC6605-Vlanif100]description uSER_AP2
+[AC6605-Vlanif100]ip add 192.168.20.1 24
+Info: IP pool on this interface has been deleted.
+[AC6605-Vlanif100]dhcp select interface
+[AC6605-Vlanif100]quit
+[AC6605]</code></pre></div>
+</li>
+<li><p>WLAN 配置</p>
+<div class="code-wrapper"><pre><code class="hljs ensp">[AC6605]capwap source interface Vlanif 100			# capwap隧道绑定vlan
+[AC6605]wlan		# 进入无线配置视图
+[AC6605-wlan-view]regulatory-domain-profile name office-domain			# 创建域管理模板
+[AC6605-wlan-regulate-domain-office-domain]country-code CN				# 配置国家代码
+Info: The current country code is same with the input country code.
+[AC6605-wlan-regulate-domain-office-domain]quit
+[AC6605-wlan-view]ssid-profile name office-ssid-AP1 			# 创建SSID模板
+[AC6605-wlan-ssid-prof-office-ssid-AP1]ssid scitc				# 设置SSID名称为scitc
+Info: This operation may take a few seconds, please wait.done.
+[AC6605-wlan-ssid-prof-office-ssid-AP1]quit
+[AC6605-wlan-view]ssid-profile name office-ssid-AP2
+[AC6605-wlan-ssid-prof-office-ssid-AP2]ssid jiwang
+Info: This operation may take a few seconds, please wait.done.
+[AC6605-wlan-ssid-prof-office-ssid-AP2]quit
+[AC6605-wlan-view]security-profile name office-security			# 创建安全策略
+[AC6605-wlan-sec-prof-office-security]security wpa-wpa2 psk pass-phrase 123456789 aes		# 设置SSID密码
+Warning: The current password is too simple. For the sake of security, you are a
+dvised to set a password containing at least two of the following: lowercase let
+ters a to z, uppercase letters A to Z, digits, and special characters. Continue?
+ [Y/N]:Y
+[AC6605-wlan-sec-prof-office-security]vap-profile name office-vap-1			# 创建VAP模板
+[AC6605-wlan-vap-prof-office-vap-1]forward-mode direct-forward				# 配置业务数据转发模式
+[AC6605-wlan-vap-prof-office-vap-1]security-profile office-security			# 绑定安全策略
+Info: This operation may take a few seconds, please wait.done.
+[AC6605-wlan-vap-prof-office-vap-1]ssid-profile office-ssid-AP1				# 绑定SSID模板
+Info: This operation may take a few seconds, please wait.done.
+[AC6605-wlan-vap-prof-office-vap-1]service-vlan vlan-id 10					# 绑定业务VLAN
+Info: This operation may take a few seconds, please wait.done.
+[AC6605-wlan-vap-prof-office-vap-1]quit
+[AC6605-wlan-view]vap-profile name office-vap-2
+[AC6605-wlan-vap-prof-office-vap-2]forward-mode direct-forward
+[AC6605-wlan-vap-prof-office-vap-2]security-profile office-security
+Info: This operation may take a few seconds, please wait.done.
+[AC6605-wlan-vap-prof-office-vap-2]ssid-profile office-ssid-AP2
+Info: This operation may take a few seconds, please wait.done.
+[AC6605-wlan-vap-prof-office-vap-2]service-vlan vlan-id 20
+Info: This operation may take a few seconds, please wait.done.
+[AC6605-wlan-vap-prof-office-vap-2]quit</code></pre></div>
+</li>
+<li><p>AP 上线配置</p>
+<div class="code-wrapper"><pre><code class="hljs vbnet">[AC6605-wlan-view]ap-<span class="hljs-keyword">group</span> name office-ap-<span class="hljs-keyword">group</span>-<span class="hljs-number">1</span>		# 创建AP组
+<span class="hljs-symbol">Info:</span> This operation may <span class="hljs-keyword">take</span> a few seconds. Please wait <span class="hljs-keyword">for</span> a moment.done.
+[AC6605-wlan-ap-<span class="hljs-keyword">group</span>-office-ap-<span class="hljs-keyword">group</span>-<span class="hljs-number">1</span>]regulatory-domain-profile office-domain			# 绑定域模板
+<span class="hljs-symbol">Warning:</span> Modifying the country code will clear channel, power <span class="hljs-built_in">and</span> antenna gain c
+onfigurations <span class="hljs-keyword">of</span> the radio <span class="hljs-built_in">and</span> reset the AP. <span class="hljs-keyword">Continue</span>?[Y/N]:Y
+[AC6605-wlan-ap-<span class="hljs-keyword">group</span>-office-ap-<span class="hljs-keyword">group</span>-<span class="hljs-number">1</span>]vap-profile office-vap-<span class="hljs-number">1</span> wlan <span class="hljs-number">1</span> radio <span class="hljs-number">0</span>
+<span class="hljs-symbol">Info:</span> This operation may <span class="hljs-keyword">take</span> a few seconds, please wait...done.
+[AC6605-wlan-ap-<span class="hljs-keyword">group</span>-office-ap-<span class="hljs-keyword">group</span>-<span class="hljs-number">1</span>]vap-profile office-vap-<span class="hljs-number">1</span> wlan <span class="hljs-number">1</span> radio <span class="hljs-number">1</span>
+<span class="hljs-symbol">Info:</span> This operation may <span class="hljs-keyword">take</span> a few seconds, please wait...done.
+[AC6605-wlan-ap-<span class="hljs-keyword">group</span>-office-ap-<span class="hljs-keyword">group</span>-<span class="hljs-number">1</span>]quit
+[AC6605-wlan-view]ap-id <span class="hljs-number">0</span> ap-mac <span class="hljs-number">00e0</span>-fc93-<span class="hljs-number">52e0</span>			# 添加AP
+[AC6605-wlan-ap-<span class="hljs-number">0</span>]ap-<span class="hljs-keyword">group</span> office-ap-<span class="hljs-keyword">group</span>-<span class="hljs-number">1</span>			# 添加到AP组中
+<span class="hljs-symbol">Warning:</span> This operation may cause AP reset. <span class="hljs-keyword">If</span> the country code changes, it will
+ clear channel, power <span class="hljs-built_in">and</span> antenna gain configurations <span class="hljs-keyword">of</span> the radio, Whether <span class="hljs-keyword">to</span> c
+ontinue? [Y/N]:Y
+<span class="hljs-symbol">Info:</span> This operation may <span class="hljs-keyword">take</span> a few seconds. Please wait <span class="hljs-keyword">for</span> a moment.. done.
+[AC6605-wlan-ap-<span class="hljs-number">0</span>]quit
+[AC6605-wlan-view]ap-<span class="hljs-keyword">group</span> name office-ap-<span class="hljs-keyword">group</span>-<span class="hljs-number">2</span>
+<span class="hljs-symbol">Info:</span> This operation may <span class="hljs-keyword">take</span> a few seconds. Please wait <span class="hljs-keyword">for</span> a moment.done.
+[AC6605-wlan-ap-<span class="hljs-keyword">group</span>-office-ap-<span class="hljs-keyword">group</span>-<span class="hljs-number">2</span>]regulatory-domain-profile office-domain
+<span class="hljs-symbol">Warning:</span> Modifying the country code will clear channel, power <span class="hljs-built_in">and</span> antenna gain c
+onfigurations <span class="hljs-keyword">of</span> the radio <span class="hljs-built_in">and</span> reset the AP. <span class="hljs-keyword">Continue</span>?[Y/N]:
+<span class="hljs-symbol">Error:</span> Please choose <span class="hljs-comment">&#x27;YES&#x27; or &#x27;NO&#x27; first before pressing &#x27;Enter&#x27;. [Y/N]:y</span>
+[AC6605-wlan-ap-<span class="hljs-keyword">group</span>-office-ap-<span class="hljs-keyword">group</span>-<span class="hljs-number">2</span>]vap-profile office-vap-<span class="hljs-number">2</span> wlan <span class="hljs-number">1</span> radio <span class="hljs-number">0</span>
+<span class="hljs-symbol">Info:</span> This operation may <span class="hljs-keyword">take</span> a few seconds, please wait...done.
+[AC6605-wlan-ap-<span class="hljs-keyword">group</span>-office-ap-<span class="hljs-keyword">group</span>-<span class="hljs-number">2</span>]vap-profile office-vap-<span class="hljs-number">2</span> wlan <span class="hljs-number">1</span> radio <span class="hljs-number">1</span>
+<span class="hljs-symbol">Info:</span> This operation may <span class="hljs-keyword">take</span> a few seconds, please wait...done.
+[AC6605-wlan-ap-<span class="hljs-keyword">group</span>-office-ap-<span class="hljs-keyword">group</span>-<span class="hljs-number">2</span>]quit
+[AC6605-wlan-view]ap-id <span class="hljs-number">1</span> ap-mac <span class="hljs-number">00e0</span>-fce9-<span class="hljs-number">3580</span>
+[AC6605-wlan-ap-<span class="hljs-number">1</span>]ap-<span class="hljs-keyword">group</span> office-ap-<span class="hljs-keyword">group</span>-<span class="hljs-number">2</span>
+<span class="hljs-symbol">Warning:</span> This operation may cause AP reset. <span class="hljs-keyword">If</span> the country code changes, it will
+ clear channel, power <span class="hljs-built_in">and</span> antenna gain configurations <span class="hljs-keyword">of</span> the radio, Whether <span class="hljs-keyword">to</span> c
+ontinue? [Y/N]:Y
+<span class="hljs-symbol">Info:</span> This operation may <span class="hljs-keyword">take</span> a few seconds. Please wait <span class="hljs-keyword">for</span> a moment.. done.
+[AC6605-wlan-ap-<span class="hljs-number">1</span>]quit</code></pre></div></li>
+</ol>
+<h3 id="LSW1-配置"><a href="#LSW1-配置" class="headerlink" title="LSW1 配置"></a>LSW1 配置</h3><ol>
+<li><p>VLAN&amp;&amp;链路配置</p>
+<div class="code-wrapper"><pre><code class="hljs ensp">&lt;Huawei&gt;sys
+Enter system view, return user view with Ctrl+Z.
+[Huawei]un in en
+Info: Information center is disabled.
+[Huawei]vlan batch 100 10 20			# 创建vlan100 20 10
+Info: This operation may take a few seconds. Please wait for a moment...done.
+[Huawei]int e 0/0/1
+[Huawei-Ethernet0/0/1]description to_AC
+[Huawei-Ethernet0/0/1]port link-type trunk
+[Huawei-Ethernet0/0/1]port trunk allow-pass vlan 100 10 20
+[Huawei-Ethernet0/0/1]int e 0/0/2
+[Huawei-Ethernet0/0/2]description to_AP1
+[Huawei-Ethernet0/0/2]port link-type trunk
+[Huawei-Ethernet0/0/2]port trunk pvid vlan 100
+[Huawei-Ethernet0/0/2]port trunk allow-pass vlan 100 10
+[Huawei-Ethernet0/0/2]quit
+[Huawei]int e 0/0/3
+[Huawei-Ethernet0/0/3]description to_AP2
+[Huawei-Ethernet0/0/3]port link-type trunk
+[Huawei-Ethernet0/0/3]port trunk pvid vlan 100
+[Huawei-Ethernet0/0/3]port trunk allow-pass vlan 100 20
+[Huawei-Ethernet0/0/3]quit</code></pre></div></li>
+</ol>
 
                 
               </div>
@@ -318,7 +470,7 @@
     
       <span class="category-chain">
         
-  <a href="/categories/Python/" class="category-chain-item">Python</a>
+  <a href="/categories/ensp/" class="category-chain-item">ensp</a>
   
   
 
@@ -345,8 +497,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>Hello world ！</div>
-      <div>https://sunshine214000.github.io/2022/09/03/hello-world/</div>
+      <div>二层ac+ap组网基础配置</div>
+      <div>https://sunshine214000.github.io/2022/09/04/ac&amp;ap/</div>
     </div>
     <div class="license-meta">
       
@@ -358,7 +510,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2022年9月3日</div>
+          <div>2022年9月4日</div>
         </div>
       
       
@@ -400,15 +552,21 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2022/09/04/ac&amp;ap/" title="二层ac+ap组网基础配置">
+                      <a href="/2022/09/04/Routing%20Comprehensive%20Exercise/" title="路由交换综合练习">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">二层ac+ap组网基础配置</span>
+                        <span class="hidden-mobile">路由交换综合练习</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
                   </article>
                   <article class="post-next col-6">
                     
+                    
+                      <a href="/2022/09/03/hello-world/" title="Hello world ！">
+                        <span class="hidden-mobile">Hello world ！</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
                     
                   </article>
                 </div>
